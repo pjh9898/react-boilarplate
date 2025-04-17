@@ -1,9 +1,9 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Typography from "./components/Typography";
+import Typography from "../../components/Typography";
 
 const navItems = [
   { name: "홈", href: "/" },
@@ -22,12 +22,12 @@ export const Navbar = () => {
         {navItems.map((item) => (
           <li key={item.href}>
             <Link href={item.href}>
-              <Button
+              {/* <Button
                 variant={pathname === item.href ? "default" : "outline"}
                 className="cursor-pointer"
               >
                 {item.name}
-              </Button>
+              </Button> */}
             </Link>
           </li>
         ))}

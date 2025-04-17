@@ -1,15 +1,11 @@
+import { createNavigation } from "next-intl/navigation";
 import { defineRouting } from "next-intl/routing";
-import { createSharedPathnamesNavigation } from "next-intl/navigation";
 
 export const routing = defineRouting({
-  // A list of all locales that are supported
-  locales: ["en", "de"],
-
-  // Used when no locale matches
-  defaultLocale: "en",
+  locales: ["ko", "en"],
+  defaultLocale: "ko",
 });
 
-// Lightweight wrappers around Next.js' navigation APIs
-// that will consider the routing configuration
+// 기존 next js에서 제공하는 Link, redirect, usePathname, useRouter를 대체합니다.
 export const { Link, redirect, usePathname, useRouter } =
-  createSharedPathnamesNavigation(routing);
+  createNavigation(routing);
