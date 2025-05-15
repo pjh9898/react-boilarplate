@@ -1,25 +1,31 @@
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
+import { Navbar } from "./Navbar";
+import "@/styles/globals.css";
 
 type Params = Promise<{ locale: never }>;
 
-export default async function LocaleLayout({
+const LocaleLayout = async ({
   children,
   params,
 }: {
   children: React.ReactNode;
   params: Params;
-}) {
-  const { locale } = await params; // next js 15버전부터 Params 사용시 비동기로 변경됨
+}) => {
+  const { locale } = await params;
 
-  // 클라이언트에게 모든 메시지 제공
   const messages = await getMessages();
 
   return (
     <html lang={locale}>
-      <NextIntlClientProvider messages={messages}>
-        <body>{children}</body>
-      </NextIntlClientProvider>
+      <body>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <Navbar />
+          <main className="pt-16">{children}</main>
+        </NextIntlClientProvider>
+      </body>
     </html>
   );
-}
+};
+
+export default LocaleLayout;

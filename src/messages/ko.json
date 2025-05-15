@@ -1,5 +1,14 @@
 {
   "common": {
     "welcome": "환영합니다!!"
+  },
+  "home": {
+    "title": "홈"
+  },
+  "tailwind": {
+    "title": "TailwindCSS"
+  },
+  "emotion": {
+    "title": "Emotion"
   }
 }

@@ -24,7 +24,7 @@ const Typography = <T extends ElementType = "p">({
   type,
   ...props
 }: ITypography<T> & ComponentPropsWithoutRef<T>): JSX.Element => {
-  const Tag = tag || "p";
+  const Tag = tag || "span";
 
   return (
     <Tag

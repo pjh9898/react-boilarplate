@@ -1,34 +1,32 @@
 "use client";
 
-// import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link, usePathname } from "@/i18n/routing";
 import Typography from "../../components/Typography";
-
-const navItems = [
-  { name: "홈", href: "/" },
-  { name: "TailwindCSS", href: "/tailwind" },
-];
+import { Button } from "@/components/ui/button";
+import { useTranslations } from "next-intl";
 
 export const Navbar = () => {
   const pathname = usePathname();
+  const t = useTranslations();
+
+  const NAV_ITEMS = [
+    { name: t("home.title"), href: "/" },
+    { name: t("tailwind.title"), href: "/tailwind" },
+    { name: t("emotion.title"), href: "/emotion" },
+  ];
 
   return (
-    <nav className="flex items-center gap-4 px-6 py-4 bg-white shadow-md">
-      <Link href={"/"} className="text-xl font-semibold">
-        <Typography type="strong_01"> NextJS BoilerPlate</Typography>
-      </Link>
+    <nav className="flex items-center justify-between px-6 py-4 bg-white shadow-md">
       <ul className="flex gap-4">
-        {navItems.map((item) => (
+        {NAV_ITEMS.map((item) => (
           <li key={item.href}>
-            <Link href={item.href}>
-              {/* <Button
-                variant={pathname === item.href ? "default" : "outline"}
-                className="cursor-pointer"
-              >
-                {item.name}
-              </Button> */}
-            </Link>
+            <Button
+              variant={pathname === item.href ? "default" : "outline"}
+              className="cursor-pointer"
+              asChild
+            >
+              <Link href={item.href}>{item.name}</Link>
+            </Button>
           </li>
         ))}
       </ul>

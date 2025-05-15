@@ -1,5 +1,14 @@
 {
   "common": {
     "welcome": "Welcome!"
+  },
+  "home": {
+    "title": "Home"
+  },
+  "tailwind": {
+    "title": "TailwindCSS"
+  },
+  "emotion": {
+    "title": "Emotion"
   }
 }
