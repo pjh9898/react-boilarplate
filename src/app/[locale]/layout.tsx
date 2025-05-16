@@ -1,7 +1,7 @@
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { Navbar } from "./Navbar";
-import "@/styles/globals.css";
+import "../../styles/globals.css";
 
 type Params = Promise<{ locale: never }>;
 
