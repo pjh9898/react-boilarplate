@@ -22,7 +22,6 @@ export const Navbar = () => {
           <li key={item.href}>
             <Button
               variant={pathname === item.href ? "default" : "outline"}
-              className="cursor-pointer"
               asChild
             >
               <Link href={item.href}>{item.name}</Link>
