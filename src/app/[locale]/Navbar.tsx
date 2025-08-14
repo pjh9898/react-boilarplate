@@ -1,10 +1,9 @@
 "use client";
 
 import { Link, usePathname } from "@/i18n/routing";
-import Typography from "../../components/Typography";
-import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
-import { cn } from "@/lib/utils";
+import { cn } from "@/common/lib/utils";
+import { Button } from "@/components/ui/button";
 
 export const Navbar = () => {
   const pathname = usePathname();
@@ -17,7 +16,7 @@ export const Navbar = () => {
   ];
 
   return (
-    <nav className="flex items-center justify-between px-6 py-4 bg-white shadow-md">
+    <nav className="flex items-center justify-between px-6 py-4 bg-white shadow-md fixed top-0 left-0 right-0 z-50">
       <ul className="flex gap-4">
         {NAV_ITEMS.map((item) => (
           <li key={item.href}>
