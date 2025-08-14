@@ -4,6 +4,7 @@ import { Link, usePathname } from "@/i18n/routing";
 import Typography from "../../components/Typography";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
+import { cn } from "@/lib/utils";
 
 export const Navbar = () => {
   const pathname = usePathname();
@@ -21,7 +22,11 @@ export const Navbar = () => {
         {NAV_ITEMS.map((item) => (
           <li key={item.href}>
             <Button
-              variant={pathname === item.href ? "default" : "outline"}
+              className={cn(
+                pathname === item.href
+                  ? "bg-gray-900 text-white"
+                  : "bg-white text-gray-900 border border-gray-200 hover:bg-gray-100"
+              )}
               asChild
             >
               <Link href={item.href}>{item.name}</Link>
